@@ -1,6 +1,7 @@
 install.packages("leaflet")
 install.packages("leafpop")
 install.packages("mapview")
+install.packages("rgdal", configure.args = c("--with-proj-lib=/usr/local/lib/", "--with-proj-include=/usr/local/include/"))
 install.packages("sf")
 install.packages("shiny")
 install.packages("shinythemes")
