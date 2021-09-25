@@ -1,8 +1,6 @@
-install.packages(
-  "leaflet",
-  "leafpop",
-  "mapview",
-  "sf",
-  "shiny",
-  "shinythemes"
-)
+install.packages("leaflet")
+install.packages("leafpop")
+install.packages("mapview")
+install.packages("sf")
+install.packages("shiny")
+install.packages("shinythemes")
