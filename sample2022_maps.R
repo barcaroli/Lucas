@@ -1,18 +1,4 @@
 # Install packages if not already installed
-mypackages <- c("shiny", 
-                "shinythemes", 
-                "sf",
-                "mapview",
-                "leaflet",
-                "leafpop"
-                )
-for (p in mypackages){
-  if(!require(p, character.only = TRUE)){
-    install.packages(p)
-    library(p, character.only = TRUE)
-  }
-}
-
 # Load packages
 library(shiny)
 library(shinythemes)
