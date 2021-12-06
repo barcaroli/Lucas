@@ -1,3 +1,4 @@
+# Load packages
 library(shiny)
 library(shinythemes)
 library(sf)
@@ -5,6 +6,8 @@ library(mapview)
 library(leaflet)
 library(leafpop)
 
+
+# Load data
 load("LUCAS_sample.RData")
 samp <- samp[order(paste0(samp$NUTS0,samp$NUTS2)),]
 samp_sf <- st_as_sf(samp, coords = c("X_LAEA", "Y_LAEA"),
@@ -89,6 +92,22 @@ server <- function(input, output, session) {
       req(input$value_LU)
       validate(need(!is.na(input$value_LU), "Error: Please provide  valid LU value"))
       samp <- samp_sf
+      # if (input$ObsType == "all") 
+      #   if (input$value == "all") 
+      #     samp[samp$NUTS2 == input$Region,]
+      #   else
+      #   if (input$var == "LC")
+      #     samp[samp$NUTS2 == input$Region & samp$LC == input$value, ]
+      #   else
+      #     samp[samp$NUTS2 == input$Region & samp$LU == input$value, ]
+      # else 
+      #   if (input$value == "all") 
+      #     samp[samp$PI == input$ObsType & samp$NUTS2 == input$Region, ]
+      #   else
+      #     if (input$var == "LC")
+      #       samp[samp$PI == input$ObsType & samp$NUTS2 == input$Region & samp$LC == input$value, ]
+      #     else
+      #       samp[samp$PI == input$ObsType & samp$NUTS0 == input$Country & samp$NUTS2 == input$Region & samp$LU == input$value, ]
       if (input$ObsType == "all" & input$var == "LC" & input$value_LC == "all")
           samp[samp$NUTS2 == input$Region,]
       else
@@ -145,4 +164,6 @@ server <- function(input, output, session) {
 
 # Create Shiny object
 shinyApp(ui, server)
+
+
 
